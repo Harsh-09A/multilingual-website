@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/([^/]+)$ /pages/$2.php?lang=$1 [L]
+
+# For assets and existing files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
