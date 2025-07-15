@@ -1,9 +1,23 @@
 RewriteEngine On
 
-# Remove .php extension
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^/]+)/([^/]+)$ /pages/$2.php?lang=$1 [L]
+# ------------------------------
+# Custom 404 Page
+ErrorDocument 404 /404.php
 
-# For assets and existing files
+# ------------------------------
+# Handle language root: /en/ → /pages/home.php?lang=en
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z]{2})/?$ /pages/home.php?lang=$1 [L,QSA]
+
+# ------------------------------
+# Handle /en/about → /pages/about.php?lang=en
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z]{2})/([^/]+)$ /pages/$2.php?lang=$1 [L,QSA]
+
+# ------------------------------
+# If nothing matches → show custom 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /404.php [L]

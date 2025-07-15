@@ -1,9 +1,19 @@
 {
   "title": "Welcome to Dream Homes",
+
   "nav_home": "Home",
   "nav_about": "About",
+
   "hero_heading": "Find Your Perfect Property",
   "hero_text": "Best deals on apartments, villas and more.",
+  "hero_button": "Learn More",
+
   "about_heading": "About Our Agency",
-  "about_text": "We have over 20 years of experience in real estate."
+  "about_title": "About Us",
+  "about_text": "We have over 20 years of experience in real estate.",
+  "about_paragraph1": "We are a dedicated team committed to providing exceptional services across different languages and cultures. Our mission is to break down language barriers and create meaningful connections with our global audience.",
+  "about_paragraph2": "With years of experience in multilingual support, we understand the importance of clear communication and cultural sensitivity. Our team consists of native speakers who ensure accurate translations and culturally appropriate content.",
+  "about_paragraph3": "Whether you're looking for web development, mobile applications, or digital marketing services, we're here to help you reach your goals in your preferred language.",
+
+  "footer_copyright": "Dream Homes. All rights reserved."
 }
