@@ -1,8 +1,27 @@
 <?php
+
+// Allowed languages
+$allowed_langs = ['en', 'gu', 'hi', 'mr'];
+
+// Get lang from URL (default: en)
 $lang = $_GET['lang'] ?? 'en';
-$json = file_get_contents(__DIR__ . '/../languages/' . $lang . '.json');
+
+// If invalid, redirect to default
+if (!in_array($lang, $allowed_langs)) {
+    header("Location: /en/home");
+    exit;
+}
+// Load translation file
+$lang_file = __DIR__ . '/../languages/' . $lang . '.json';
+if (!file_exists($lang_file)) {
+    header("Location: /en/home");
+    exit;
+}
+
+$json = file_get_contents($lang_file);
 $t = json_decode($json, true);
 
+// Translation function
 function t($key) {
     global $t;
     return $t[$key] ?? $key;
